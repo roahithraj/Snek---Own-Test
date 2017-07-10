@@ -1,4 +1,6 @@
 #include "Board.h"
+#include "Snake.h"
+#include "Goal.h"
 #include <assert.h>
 
 

@@ -7,15 +7,26 @@ class Obstacle
 {
 
 private:
-	Location ObsLocation;
 	std::mt19937 rng;
 	std::uniform_int_distribution<int> xDist;
 	std::uniform_int_distribution<int> yDist;
 	Color c = Colors::Blue;
+	static constexpr int nObs = 10;
+
+// ---------------------------------------------------------------------------------- -
+	class Obs {
+	private:
+		Location ObsLocation;
+	public:
+		void initObs(const Location&);
+		Location getLoc();
+};
+//------------------------------------------------------------------------------------
 public:
-	void initObs(const Location&);
-	void DrawObs(Board&);
+	void initObstacle();
 	bool CheckCollision(Location&, Location&);
-	Location GetLocation();
+	Obstacle(Board& brd);
+	Obs obstacles[nObs];
+
 };
 

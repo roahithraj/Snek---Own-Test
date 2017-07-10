@@ -31,3 +31,4 @@ void Goal::initGoalLoc(const Location& loc) {
 		GoalLocation = { xDist(rng),yDist(rng) };
 	}
 }
+

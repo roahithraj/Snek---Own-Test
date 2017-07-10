@@ -1,20 +1,29 @@
 #include "Obstacle.h"
 
+
+Obstacle::Obstacle(Board& brd)
+	:
+	rng(std::random_device()()),
+	xDist(0, brd.getWidth() / brd.getCellSize() - 2),
+	yDist(0, brd.getHeight() / brd.getCellSize() - 1)
+{
+	
+}
+
 bool Obstacle::CheckCollision(Location& head, Location& Obs) {
 	return
 		head.x == Obs.x &&
 		head.y == Obs.y;
 }
 
-Location Obstacle::GetLocation() {
-	return ObsLocation;
+
+void Obstacle::initObstacle() {
+	for (int i = 0; i < nObs; i++) {
+		Location newloc = { xDist(rng),yDist(rng) };
+		obstacles[i].initObs(newloc);
+	}
 }
 
-void Obstacle::initObs(const Location& loc) {
-	ObsLocation = loc;
-}
+void Obstacle::Obs::initObs(const Location& loc) {
 
-
-void Obstacle::DrawObs(Board& brd) {
-	brd.Draw(ObsLocation, c);
 }

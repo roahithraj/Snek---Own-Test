@@ -1,6 +1,8 @@
 #pragma once
 #include "Graphics.h"
+#include <random>
 #include "Location.h"
+
 class Board
 {
 private:
@@ -10,6 +12,8 @@ private:
 	static constexpr int height = 600;
 	Location loc;
 	Color c;
+
+
 public:
 	void Draw(const Location loc, Color c);
 	Board(Graphics &gfx);
